@@ -1,0 +1,33 @@
+
+config wifi-device 'rai0'
+    option type 'mt7612'
+    option hwmode '11a'
+    option channel 'auto'
+    option txpower '100'
+    option htmode 'VHT80'
+    option country 'CN'
+
+config wifi-iface
+    option device 'rai0'
+    option network 'lan'
+    option mode 'ap'
+    option encryption 'psk2'
+    option ssid 'Benjamin002'
+    option key 'Benjamin002'
+
+config wifi-device 'ra0'
+    option type 'rt2860v2'
+    option hwmode '11g'
+    option channel 'auto'
+    option txpower '100'
+    option htmode 'HT40'
+    option country 'CN'
+
+config wifi-iface
+    option device 'ra0'
+    option network 'lan'
+    option mode 'ap'
+    option encryption 'psk2'
+    option ssid 'Benjamin001'
+    option key 'Benjamin001'
+

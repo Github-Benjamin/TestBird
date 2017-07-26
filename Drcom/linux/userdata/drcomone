@@ -1,0 +1,33 @@
+# -*- coding:utf-8 -*-
+
+f1 = file("/usr/bin/drcom")
+f2 = file("/etc/drcom.conf",'w+')
+
+data="""server = '10.255.255.250'
+username = '13311210528'
+password = '123456'
+CONTROLCHECKSTATUS = '\\x20'
+ADAPTERNUM = '\\x04'
+host_ip = '10.40.44.44'
+IPDOG = '\\x01'
+host_name = 'Kali'
+PRIMARY_DNS = '10.255.0.193'
+dhcp_server = '10.255.0.197'
+AUTH_VERSION = '\\x28\\x00'
+mac = 0x20EE321223
+host_os = 'Kali'
+KEEP_ALIVE_VERSION = '\\xdc\\x02'"""
+
+listf1 = f1.readlines()
+del listf1[8:22]
+listf1.insert(8,'\n')
+listf1.insert(8,data)
+f1.close()
+
+f1 = file("/usr/bin/drcom",'w+')
+for i in listf1:
+    f1.write(i)
+f1.closed
+
+f2.write(data)
+f2.close()

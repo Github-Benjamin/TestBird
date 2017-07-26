@@ -1,4 +1,5 @@
 import hashlib
+import random
 
 def keytoken(key_number):
     m2 = hashlib.md5()
@@ -6,6 +7,7 @@ def keytoken(key_number):
     key =  m2.hexdigest()
     return key
 
-key_number = '482950'+'Benjamin'+'05'
+number = raw_input('Please input key_number: ')
+key_number = number+'Benjamin'+number[5]+number[4]
 
 print keytoken(key_number)
