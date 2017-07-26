@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="button" value="提交">
+</body>
+    <script type="text/javascript" src="../static/js/jquery-3.x.min.js"></script>
+    <script>
+            $(function(){
+
+            $(":button").click(function() {
+
+                $("input:text").removeClass('empty_input');  // 先去除empty_input样式
+
+                $("input:text").each(function() {
+
+                    if($.trim($(this).val()) == "") // 判断value值是否为空
+
+                        $(this).addClass('empty_input');
+
+                });
+
+                $(".empty_input:first").focus(); // :first选择器表示第一个匹配的元素
+
+            });
+
+        });
+    </script>
+</html>

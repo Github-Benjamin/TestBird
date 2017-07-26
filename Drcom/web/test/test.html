@@ -1,0 +1,70 @@
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+  <html>
+   <head>
+        <title> New Document </title>
+        <meta charset="UTF-8">
+        <meta name="Generator" content="EditPlus">
+        <meta name="Author" content="">
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+    <style>
+       div{width:200px;height:20px;overflow:hidden;}
+   </style>
+  </head>
+  <body>
+   <!--这里的html代码可以任意格式化-->
+   <div id="container">
+        <div>第一个标题</div>
+        <div>第二个标题</div>
+        <div>第三个标题</div>
+    </div>
+  </body>
+
+
+   <script language="JavaScript">
+     //获取第一个子元素
+     function get_firstchild(obj)
+    {
+          var child=obj.firstChild;
+         while (child.nodeType!=1)
+          {
+              child=child.nextSibling;
+          }
+             return child;
+    }
+
+     function roll()
+     {
+         var container=document.getElementById('container');
+        var child = get_firstchild(container);
+
+        if(child.style.marginTop=='')
+         {
+            child.style.marginTop='0px';
+         }
+
+     if(parseInt(child.style.marginTop)==-child.offsetHeight)
+        {
+          child.style.marginTop = "0px";
+           container.appendChild(child);
+          setTimeout("roll()",roll.stoptime)
+      }
+       else
+       {
+           if(parseInt(child.style.marginTop) - roll.step < -child.offsetHeight)
+           {
+               child.style.marginTop = - child.offsetHeight + "px";
+           }     else
+           {
+                 child.style.marginTop = parseInt(child.style.marginTop) - roll.step + "px";
+               setTimeout("roll()",roll.timeout)
+           }
+
+        }
+    }
+  roll.timeout = 20;    //时长
+  roll.step = 1;        //步伐
+  roll.stoptime = 2000; //停留时间
+  roll();  //执行
+  </script>
+ </html>

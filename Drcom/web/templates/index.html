@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr.COM•川外专版路由器 首页</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"  />
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="header-cloer">
+        </div>
+        <div class="header-h1">
+            <h1>网页练习</h1>
+        </div >
+        <div class="header-h3">
+            <li><a href="." id="index">首页</a></li>
+            <li><a href="pay" >购买产品</a></li>
+            <li><a href="understand" >了解产品</a></li>
+            <li><a href="about" >关于我们</a></li>
+            <li><a href="message" >留言板</a></li>
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="../static/css/image/banner.jpg" alt="banner图">
+    </div>
+
+    <div class="main">
+        <div class="all-time">
+            <div class="kf">
+                在线客服
+            </div>
+            <div class="qq">
+               <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=210770944&site=qq&menu=yes">点击联系客服</a>
+               <!--<img border="0" src="http://wpa.qq.com/pa?p=2:210770944:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>-->
+            </div>
+            <div class="img">工作时间</div>
+            <div class="m-time">周一至周五 ：8:30-17:30</div>
+            <div class="m-time">周六至周日 ：9:00-17:00</div>
+        </div>
+        <div class="config">
+               <div id="container">
+                    <div>路由器使用很方便哦</div>
+                    <div>太好了，寝室有不断网的wifi了</div>
+                    <div>我们同学一起合用，费用真划算</div>
+                    <div>晚上再也不用起床开电脑wifi了，好爽</div>
+                    <div>再也没有电脑上网问题了</div>
+                    <div>视乎这个路由器真的很方便也</div>
+                    <div>好人，好人，我终于找到了我想要的机器了</div>
+                    <div>路由器开wifi好方便哦</div>
+                    <div>有了路由器，再也不用担心手机流量不够了</div>
+                </div>
+            <div class="title">首页</div>
+            <a class="config-a" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=210770944&site=qq&menu=yes">
+            <img src="../static/css/image/drcom.png" alt="宣传图片">
+            <a class="config-a" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=210770944&site=qq&menu=yes">点击了解详情</a>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &#169; 2016 Testboy 版权所有
+    </div>
+
+
+    <script language="JavaScript">
+         //获取第一个子元素
+         function get_firstchild(obj)
+        {
+              var child=obj.firstChild;
+             while (child.nodeType!=1)
+              {
+                  child=child.nextSibling;
+              }
+                 return child;
+        }
+
+         function roll()
+         {
+             var container=document.getElementById('container');
+            var child = get_firstchild(container);
+
+            if(child.style.marginTop=='')
+             {
+                child.style.marginTop='0px';
+             }
+
+         if(parseInt(child.style.marginTop)==-child.offsetHeight)
+            {
+              child.style.marginTop = "0px";
+               container.appendChild(child);
+              setTimeout("roll()",roll.stoptime)
+          }
+           else
+           {
+               if(parseInt(child.style.marginTop) - roll.step < -child.offsetHeight)
+               {
+                   child.style.marginTop = - child.offsetHeight + "px";
+               }     else
+               {
+                     child.style.marginTop = parseInt(child.style.marginTop) - roll.step + "px";
+                   setTimeout("roll()",roll.timeout)
+               }
+            }
+        }
+
+      roll.timeout = 20;    //时长
+      roll.step = 1;        //步伐
+      roll.stoptime = 2000; //停留时间
+      roll();  //执行
+    </script>
+
+
+</body>
+</html>
